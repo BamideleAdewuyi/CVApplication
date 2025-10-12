@@ -5,7 +5,7 @@ function GeneralSection() {
         <>
         <h2>Personal Details</h2>
         <Input label="Name"/>
-        <Input label="Email"/>
+        <Input label="Email" type="email"/>
         <Input label="Phone Number"/>
         </>
     )

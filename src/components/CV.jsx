@@ -1,4 +1,5 @@
 import GeneralSection from "./GeneralSection";
+import './CV.css'
 
 function CV() {
     return (

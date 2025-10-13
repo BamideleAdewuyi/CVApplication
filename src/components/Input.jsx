@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Input({ label, type, className, name, id }) {
+function Input({ label, type, className, name }) {
   const [text, setText] = useState('');
 
   function handleChange(e) {

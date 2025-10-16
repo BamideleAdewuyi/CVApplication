@@ -17,6 +17,7 @@ function CV() {
         isFormVisible ? 
         <div>
             CV appears here
+            <button>Edit</button>
         </div>
         :
         <form action="" onSubmit={handleSubmit}>

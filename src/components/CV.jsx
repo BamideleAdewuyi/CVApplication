@@ -12,12 +12,16 @@ function CV() {
       const phoneNumber = e.target.elements.phoneNumber.value;
       setFormVisible(true);
    }
+
+   function editForm() {
+    setFormVisible(false);
+   }
    
     return (
         isFormVisible ? 
         <div>
             CV appears here
-            <button>Edit</button>
+            <button onClick={editForm}>Edit</button>
         </div>
         :
         <form action="" onSubmit={handleSubmit}>

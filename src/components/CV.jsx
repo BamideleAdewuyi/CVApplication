@@ -1,5 +1,6 @@
 import GeneralSection from "./GeneralSection";
 import './CV.css'
+import { useState } from "react";
 
 function CV() {
     function handleSubmit(e) {

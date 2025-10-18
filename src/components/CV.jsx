@@ -32,7 +32,7 @@ function CV() {
         </form>
         :
         <div>
-            CV appears here
+            <Submissions name={name} email={email} phoneNumber={phoneNumber}/>
             <button onClick={editForm}>Edit</button>
         </div>
     )

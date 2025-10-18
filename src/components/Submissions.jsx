@@ -1,4 +1,4 @@
-function Submissions(name, email, phoneNumber) {
+function Submissions({name, email, phoneNumber}) {
     return(
         <>
         <h3>{name}</h3>

@@ -1,4 +1,5 @@
 import GeneralSection from "./GeneralSection";
+import Submissions from "./Submissions";
 import './CV.css'
 import { useState } from "react";
 

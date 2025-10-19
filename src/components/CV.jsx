@@ -11,9 +11,6 @@ function CV() {
 
     function handleSubmit(e) {
       e.preventDefault();
-      const name = e.target.elements.name.value;
-      const email = e.target.elements.email.value;
-      const phoneNumber = e.target.elements.phoneNumber.value;
       setName(e.target.elements.name.value);
       setEmail(e.target.elements.email.value);
       setPhoneNumber(e.target.elements.phoneNumber.value);
@@ -27,12 +24,18 @@ function CV() {
     return (
         isFormVisible ? 
         <form action="" onSubmit={handleSubmit}>
-        <GeneralSection/>
+        <GeneralSection
+        name={name}
+        email={email}
+        phoneNumber={phoneNumber}/>
         <button>Submit</button>
         </form>
         :
         <div>
-            <Submissions name={name} email={email} phoneNumber={phoneNumber}/>
+            <Submissions
+            name={name}
+            email={email}
+            phoneNumber={phoneNumber}/>
             <button onClick={editForm}>Edit</button>
         </div>
     )

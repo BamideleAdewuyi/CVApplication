@@ -28,7 +28,9 @@ function CV() {
         name={name}
         email={email}
         phoneNumber={phoneNumber}/>
+        <h2>Education</h2>
         <button type="button">Add education</button>
+        <h2>Experience</h2>
         <button type="button">Add experience</button>
         <button>Submit</button>
         </form>

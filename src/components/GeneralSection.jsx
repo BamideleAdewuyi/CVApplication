@@ -1,22 +1,25 @@
 import Input from "./Input";
 
-function GeneralSection() {
+function GeneralSection({name, email, phoneNumber}) {
     return (
         <>
         <h2>Personal Details</h2>
         <Input 
         label="Name" 
         className="generalSectionInput"
-        name="name"/>
+        name="name"
+        value={name}/>
         <Input 
         label="Email" 
         type="email" 
         className="generalSectionInput"
-        name="email"/>
+        name="email"
+        value={email}/>
         <Input 
         label="Phone Number" 
         className="generalSectionInput"
-        name="phoneNumber"/>
+        name="phoneNumber"
+        value={phoneNumber}/>
         </>
     )
 };

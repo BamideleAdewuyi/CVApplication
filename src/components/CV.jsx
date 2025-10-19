@@ -1,5 +1,6 @@
 import GeneralSection from "./GeneralSection";
 import Submissions from "./Submissions";
+import EducationSection from "./EducationSection";
 import './CV.css'
 import { useState } from "react";
 
@@ -8,6 +9,7 @@ function CV() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [noOfSchools, setNoOfSchools] = useState(0);
 
     function handleSubmit(e) {
       e.preventDefault();
@@ -20,6 +22,10 @@ function CV() {
    function editForm() {
     setFormVisible(true);
    }
+
+   function addSchool() {
+    setNoOfSchools(noOfSchools+1);
+   };
    
     return (
         isFormVisible ? 
@@ -29,7 +35,14 @@ function CV() {
         email={email}
         phoneNumber={phoneNumber}/>
         <h2>Education</h2>
-        <button type="button">Add education</button>
+        {Array.from({length: noOfSchools}).map((_, index) => (
+            <EducationSection
+            key={index}
+            school="School"
+            subject="Subject"
+            year="2020-06"/>
+        ))}
+        <button type="button" onClick={addSchool}>Add education</button>
         <h2>Experience</h2>
         <button type="button">Add experience</button>
         <button>Submit</button>

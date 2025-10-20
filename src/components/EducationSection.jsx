@@ -19,6 +19,7 @@ function EducationSection({school, subject, year}) {
         name="year"
         type="month"
         value={year}/>
+        <button type="button">Delete</button>
         </>
     )
 };

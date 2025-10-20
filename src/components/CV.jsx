@@ -10,7 +10,7 @@ function CV() {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [noOfSchools, setNoOfSchools] = useState(0);
-    const [education, setEducation] = useState({});
+    const [education, setEducation] = useState([]);
 
     function handleSubmit(e) {
       e.preventDefault();

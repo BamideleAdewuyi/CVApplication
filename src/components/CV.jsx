@@ -38,9 +38,9 @@ function CV() {
         {Array.from({length: noOfSchools}).map((_, index) => (
             <EducationSection
             key={index}
-            school="School"
-            subject="Subject"
-            year="2020-06"/>
+            school=""
+            subject=""
+            year=""/>
         ))}
         <button type="button" onClick={addSchool}>Add education</button>
         <h2>Experience</h2>

@@ -37,11 +37,15 @@ function CV() {
         phoneNumber={phoneNumber}/>
         <h2>Education</h2>
         {Array.from({length: noOfSchools}).map((_, index) => (
-            <EducationSection
-            key={index}
-            school=""
-            subject=""
-            year=""/>
+            <div className="educationSection" key={`eductionSection${index}`}>
+                <EducationSection
+                key={`education${index}`}
+                school=""
+                subject=""
+                year=""/>
+                <button type="button" key={`educationButton${index}`}>Delete</button>
+            </div>
+
         ))}
         <button type="button" onClick={addSchool}>Add education</button>
         <h2>Experience</h2>

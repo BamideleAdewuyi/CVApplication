@@ -19,11 +19,12 @@ function CV() {
     };
 
     function addEducation(subjects, schools, years) {
+        setEducation([]);
         for (let i = 0; i < noOfSchools; i++) {
             addItem({
-                subject: subjects[i],
-                school: schools[i],
-                year: years[i]
+                subject: subjects[i].value,
+                school: schools[i].value,
+                year: years[i].value
             }, setEducation);
         };
     };
@@ -37,7 +38,6 @@ function CV() {
       const schools = castArray(e.target.elements.school);
       const years = castArray(e.target.elements.year);
       addEducation(subjects, schools, years);
-
       setFormVisible(false);
    }
 

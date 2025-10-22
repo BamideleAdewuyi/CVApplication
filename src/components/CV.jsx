@@ -14,6 +14,20 @@ function CV() {
 
     const castArray = value => Array.isArray(value) ? value : [value];
 
+    function addItem(item, stateFunction) {
+        stateFunction(prevItems => [...prevItems, item]);
+    };
+
+    function addEducation(subjects, schools, years) {
+        for (let i = 0; i < noOfSchools; i++) {
+            addItem({
+                subject: subjects[i],
+                school: schools[i],
+                year: years[i]
+            }, setEducation);
+        };
+    };
+
     function handleSubmit(e) {
       e.preventDefault();
       setName(e.target.elements.name.value);
@@ -22,6 +36,8 @@ function CV() {
       const subjects = castArray(e.target.elements.subject);
       const schools = castArray(e.target.elements.school);
       const years = castArray(e.target.elements.year);
+      addEducation(subjects, schools, years);
+
       setFormVisible(false);
    }
 

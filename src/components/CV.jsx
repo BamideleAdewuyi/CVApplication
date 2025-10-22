@@ -12,11 +12,16 @@ function CV() {
     const [noOfSchools, setNoOfSchools] = useState(0);
     const [education, setEducation] = useState([]);
 
+    const castArray = value => Array.isArray(value) ? value : [value];
+
     function handleSubmit(e) {
       e.preventDefault();
       setName(e.target.elements.name.value);
       setEmail(e.target.elements.email.value);
       setPhoneNumber(e.target.elements.phoneNumber.value);
+      const subjects = castArray(e.target.elements.subject);
+      const schools = castArray(e.target.elements.school);
+      const years = castArray(e.target.elements.year);
       setFormVisible(false);
    }
 

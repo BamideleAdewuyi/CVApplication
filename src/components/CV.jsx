@@ -49,8 +49,8 @@ function CV() {
         setNoOfSchools(noOfSchools+1);
    };
 
-   function deleteSchool() {
-
+   function deleteSchool(index) {
+    
    };
    
     return (
@@ -68,7 +68,7 @@ function CV() {
                 school= {education[index] ? education[index].school : ""}
                 subject={education[index] ? education[index].subject : ""}
                 year={education[index] ? education[index].year : ""}/>
-                <button type="button" onClick={deleteSchool} key={`educationButton${index}`}>Delete</button>
+                <button type="button" onClick={() => deleteSchool(index)} key={`educationButton${index}`}>Delete</button>
             </div>
 
         ))}

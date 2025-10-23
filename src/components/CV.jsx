@@ -22,31 +22,31 @@ function CV() {
         setEducation([]);
         for (let i = 0; i < noOfSchools; i++) {
             addItem({
-                subject: subjects[i].value,
-                school: schools[i].value,
-                year: years[i].value
+                subject: subjects[0][i] ? subjects[0][i].value : subjects[i].value,
+                school: schools[0][i] ? schools[0][i].value : schools[i].value,
+                year: years[0][i] ? years[0][i].value : years[i].value
             }, setEducation);
         };
     };
 
     function handleSubmit(e) {
-      e.preventDefault();
-      setName(e.target.elements.name.value);
-      setEmail(e.target.elements.email.value);
-      setPhoneNumber(e.target.elements.phoneNumber.value);
-      const subjects = castArray(e.target.elements.subject);
-      const schools = castArray(e.target.elements.school);
-      const years = castArray(e.target.elements.year);
-      addEducation(subjects, schools, years);
-      setFormVisible(false);
-   }
-
-   function editForm() {
-    setFormVisible(true);
-   }
+        e.preventDefault();
+        setName(e.target.elements.name.value);
+        setEmail(e.target.elements.email.value);
+        setPhoneNumber(e.target.elements.phoneNumber.value);
+        const subjects = castArray(e.target.elements.subject);
+        const schools = castArray(e.target.elements.school);
+        const years = castArray(e.target.elements.year);
+        addEducation(subjects, schools, years);
+        setFormVisible(false);
+    }
+    
+    function editForm() {
+        setFormVisible(true);
+    }
 
    function addSchool() {
-    setNoOfSchools(noOfSchools+1);
+        setNoOfSchools(noOfSchools+1);
    };
    
     return (
@@ -78,7 +78,8 @@ function CV() {
             <Submissions
             name={name}
             email={email}
-            phoneNumber={phoneNumber}/>
+            phoneNumber={phoneNumber}
+            education={education}/>
             <button onClick={editForm}>Edit</button>
         </div>
     )

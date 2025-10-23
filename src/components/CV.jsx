@@ -48,6 +48,10 @@ function CV() {
    function addSchool() {
         setNoOfSchools(noOfSchools+1);
    };
+
+   function deleteSchool() {
+
+   };
    
     return (
         isFormVisible ? 

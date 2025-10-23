@@ -61,9 +61,9 @@ function CV() {
             <div className="educationSection" key={`eductionSection${index}`}>
                 <EducationSection
                 key={`education${index}`}
-                school=""
-                subject=""
-                year=""/>
+                school= {education[index] ? education[index].school : ""}
+                subject={education[index] ? education[index].subject : ""}
+                year={education[index] ? education[index].year : ""}/>
                 <button type="button" key={`educationButton${index}`}>Delete</button>
             </div>
 

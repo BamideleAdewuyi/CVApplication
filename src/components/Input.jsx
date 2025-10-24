@@ -6,7 +6,7 @@ function Input({ label, type, className, name, value, stateFunction }) {
   function handleChange(e) {
     setText(e.target.value);
     if (stateFunction) {
-      stateFunction()
+      stateFunction(e.target.value, name)
     }
   }
 

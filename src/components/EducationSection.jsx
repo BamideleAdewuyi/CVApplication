@@ -1,6 +1,6 @@
 import Input from "./Input";
 
-function EducationSection({school, subject, year, stateFunction}) {
+function EducationSection({school, subject, year, stateFunction, id}) {
     return(
         <>
         <Input 
@@ -8,12 +8,14 @@ function EducationSection({school, subject, year, stateFunction}) {
         className="educationSectionInput"
         name="school"
         value={school}
+        id={id}
         stateFunction = {stateFunction}/>
         <Input 
         label="Subject" 
         className="educationSectionInput"
         name="subject"
         value={subject}
+        id={id}
         stateFunction = {stateFunction}/>
         <Input 
         label="Year completed" 
@@ -21,6 +23,7 @@ function EducationSection({school, subject, year, stateFunction}) {
         name="year"
         type="month"
         value={year}
+        id={id}
         stateFunction = {stateFunction}/>
         </>
     )

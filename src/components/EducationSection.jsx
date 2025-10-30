@@ -1,6 +1,6 @@
 import Input from "./Input";
 
-function EducationSection({school, subject, year, stateFunction}) {
+function EducationSection({school, subject, year, stateFunction, id}) {
     return(
         <>
         <Input 

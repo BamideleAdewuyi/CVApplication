@@ -2,31 +2,41 @@ import GeneralSection from "./GeneralSection";
 import Submissions from "./Submissions";
 import EducationSection from "./EducationSection";
 import './CV.css'
-import { useState } from "react";
+import { useState, useId, use } from "react";
 
 function CV() {
     const [isFormVisible, setFormVisible] = useState(true);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [noOfSchools, setNoOfSchools] = useState(0);
+    const [edId, setEdId] = useState(0);
     const [education, setEducation] = useState([]);
-
-    const castArray = value => Array.isArray(value) ? value : [value];
 
     function addItem(item, stateFunction) {
         stateFunction(prevItems => [...prevItems, item]);
     };
 
-    function addEducation(subjects, schools, years) {
-        setEducation([]);
-        for (let i = 0; i < noOfSchools; i++) {
-            addItem({
-                subject: subjects[0][i] ? subjects[0][i].value : subjects[i].value,
-                school: schools[0][i] ? schools[0][i].value : schools[i].value,
-                year: years[0][i] ? years[0][i].value : years[i].value
-            }, setEducation);
-        };
+    function addEducation(subject, school, year) {
+
+        addItem({id: edId,
+            subject: subject,
+            school: school,
+            year: year
+        }, setEducation)
+        setEdId(edId+1);
+    };
+
+    function addSchool() {
+        addEducation("", "", "");
+    };
+
+    function deleteSchool(id) {
+
+        const newEducation = education.filter(ed => 
+            ed.id != id
+        );
+
+        setEducation(newEducation);
     };
 
     function handleSubmit(e) {
@@ -34,10 +44,6 @@ function CV() {
         setName(e.target.elements.name.value);
         setEmail(e.target.elements.email.value);
         setPhoneNumber(e.target.elements.phoneNumber.value);
-        const subjects = castArray(e.target.elements.subject);
-        const schools = castArray(e.target.elements.school);
-        const years = castArray(e.target.elements.year);
-        addEducation(subjects, schools, years);
         setFormVisible(false);
     }
     
@@ -45,13 +51,18 @@ function CV() {
         setFormVisible(true);
     }
 
-   function addSchool() {
-        setNoOfSchools(noOfSchools+1);
-   };
+    function updateEducation(value, id, name) {
 
-   function deleteSchool(index) {
-    
-   };
+        const newEducation = education.map(ed => {
+            if (ed.id == id) {
+                return {...ed, [name]: value}
+            } else {
+                return {...ed}
+            }
+        })
+
+        setEducation(newEducation);
+    }
    
     return (
         isFormVisible ? 
@@ -61,16 +72,17 @@ function CV() {
         email={email}
         phoneNumber={phoneNumber}/>
         <h2>Education</h2>
-        {Array.from({length: noOfSchools}).map((_, index) => (
-            <div className="educationSection" key={`eductionSection${index}`}>
+        {education.map(ed => (
+            <div className="educationSection" key={`educationSection${ed.id}`}>
                 <EducationSection
-                key={`education${index}`}
-                school= {education[index] ? education[index].school : ""}
-                subject={education[index] ? education[index].subject : ""}
-                year={education[index] ? education[index].year : ""}/>
-                <button type="button" onClick={() => deleteSchool(index)} key={`educationButton${index}`}>Delete</button>
+                key={`education${ed.id}`}
+                school= {ed.school ? ed.school : ""}
+                subject={ed.subject ? ed.subject : ""}
+                year={ed.year ? ed.year : ""}
+                id={ed.id}
+                stateFunction={(value, id, name) => updateEducation(value, id, name)}/>
+                <button type="button" onClick={() => deleteSchool(ed.id)} key={`educationButton${ed.id}`}>Delete</button>
             </div>
-
         ))}
         <button type="button" onClick={addSchool}>Add education</button>
         <h2>Experience</h2>

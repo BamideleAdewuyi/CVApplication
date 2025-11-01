@@ -32,6 +32,14 @@ function CV() {
         addEducation("", "", "");
     };
 
+    function addExperience(company, title, startYear, endYear, description) {
+
+    };
+
+    function addJob() {
+        addExperience("", "", "", "", "")
+    };
+
     function deleteSchool(id) {
 
         const newEducation = education.filter(ed => 

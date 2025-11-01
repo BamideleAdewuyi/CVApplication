@@ -13,6 +13,7 @@ function CV() {
     const [edId, setEdId] = useState(0);
     const [education, setEducation] = useState([]);
     const [experience, setExperience] = useState([]);
+    const [exId, setExId] = useState(0);
 
     function addItem(item, stateFunction) {
         stateFunction(prevItems => [...prevItems, item]);

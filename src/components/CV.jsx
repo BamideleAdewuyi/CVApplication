@@ -32,6 +32,17 @@ function CV() {
         addEducation("", "", "");
     };
 
+    function updateEducation(value, id, name) {
+        const newEducation = education.map(ed => {
+            if (ed.id == id) {
+                return {...ed, [name]: value}
+            } else {
+                return {...ed}
+            }
+        })
+        setEducation(newEducation);
+    }
+
     function deleteSchool(id) {
         const newEducation = education.filter(ed => 
             ed.id != id
@@ -63,6 +74,10 @@ function CV() {
         setExperience(newExperience);
     };
 
+    function updateExperience() {
+
+    };
+
     function handleSubmit(e) {
         e.preventDefault();
         setName(e.target.elements.name.value);
@@ -73,19 +88,6 @@ function CV() {
     
     function editForm() {
         setFormVisible(true);
-    }
-
-    function updateEducation(value, id, name) {
-
-        const newEducation = education.map(ed => {
-            if (ed.id == id) {
-                return {...ed, [name]: value}
-            } else {
-                return {...ed}
-            }
-        })
-
-        setEducation(newEducation);
     }
    
     return (

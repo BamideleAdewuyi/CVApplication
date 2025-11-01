@@ -3,6 +3,7 @@ import Submissions from "./Submissions";
 import EducationSection from "./EducationSection";
 import './CV.css'
 import { useState } from "react";
+import ExperienceSection from "./ExperienceSection";
 
 function CV() {
     const [isFormVisible, setFormVisible] = useState(true);
@@ -87,6 +88,18 @@ function CV() {
         ))}
         <button type="button" onClick={addSchool}>Add education</button>
         <h2>Experience</h2>
+        {experience.map(ex => (
+            <div className="experienceSection" key={`experienceSection${ex.id}`}>
+                <ExperienceSection
+                key={`experience${ex.id}`}
+                company={ex.company ? ex.company : ""}
+                title={ex.title ? ex.title : ""}
+                startYear={ex.startYear ? ex.startYear : ""}
+                endYear={ex.endYear ? ex.endYear : ""}
+                description={ex.description ? ex.description : ""}/>
+                <button type="button">Delete</button>
+            </div>
+        ))}
         <button type="button">Add experience</button>
         <button>Submit</button>
         </form>

@@ -55,8 +55,12 @@ function CV() {
         addExperience("", "", "", "", "")
     };
 
-    function deleteJob() {
+    function deleteJob(id) {
+        const newExperience = experience.filter(ex => 
+            ex.id != id
+        );
 
+        setExperience(newExperience);
     };
 
     function handleSubmit(e) {
@@ -115,7 +119,7 @@ function CV() {
                 startYear={ex.startYear ? ex.startYear : ""}
                 endYear={ex.endYear ? ex.endYear : ""}
                 description={ex.description ? ex.description : ""}/>
-                <button type="button">Delete</button>
+                <button type="button" onClick={() => deleteJob(ex.id)}>Delete</button>
             </div>
         ))}
         <button type="button" onClick={addJob}>Add experience</button>

@@ -127,7 +127,8 @@ function CV() {
                 title={ex.title ? ex.title : ""}
                 startYear={ex.startYear ? ex.startYear : ""}
                 endYear={ex.endYear ? ex.endYear : ""}
-                description={ex.description ? ex.description : ""}/>
+                description={ex.description ? ex.description : ""}
+                stateFunction={(value, id, name) => updateExperience(value, id, name)}/>
                 <button type="button" onClick={() => deleteJob(ex.id)}>Delete</button>
             </div>
         ))}

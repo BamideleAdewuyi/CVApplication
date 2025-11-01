@@ -2,7 +2,7 @@ import GeneralSection from "./GeneralSection";
 import Submissions from "./Submissions";
 import EducationSection from "./EducationSection";
 import './CV.css'
-import { useState, useId, use } from "react";
+import { useState } from "react";
 
 function CV() {
     const [isFormVisible, setFormVisible] = useState(true);
@@ -11,6 +11,7 @@ function CV() {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [edId, setEdId] = useState(0);
     const [education, setEducation] = useState([]);
+    const [experience, setExperience] = useState([]);
 
     function addItem(item, stateFunction) {
         stateFunction(prevItems => [...prevItems, item]);

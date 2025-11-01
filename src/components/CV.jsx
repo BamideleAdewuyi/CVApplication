@@ -47,7 +47,6 @@ function CV() {
         const newEducation = education.filter(ed => 
             ed.id != id
         );
-
         setEducation(newEducation);
     };
 
@@ -55,8 +54,8 @@ function CV() {
         addItem({id: exId,
             company: company,
             title: title,
-            startYear: startYear,
-            endYear: endYear,
+            from: startYear,
+            to: endYear,
             description: description
         }, setExperience)
         setExId(exId+1);
@@ -82,7 +81,7 @@ function CV() {
                 return {...ex}
             }
         })
-        setEducation(newExperience);
+        setExperience(newExperience);
     };
 
     function handleSubmit(e) {
@@ -125,9 +124,10 @@ function CV() {
                 key={`experience${ex.id}`}
                 company={ex.company ? ex.company : ""}
                 title={ex.title ? ex.title : ""}
-                startYear={ex.startYear ? ex.startYear : ""}
-                endYear={ex.endYear ? ex.endYear : ""}
+                startYear={ex.from ? ex.from : ""}
+                endYear={ex.to ? ex.to : ""}
                 description={ex.description ? ex.description : ""}
+                id={ex.id}
                 stateFunction={(value, id, name) => updateExperience(value, id, name)}/>
                 <button type="button" onClick={() => deleteJob(ex.id)}>Delete</button>
             </div>
@@ -141,7 +141,8 @@ function CV() {
             name={name}
             email={email}
             phoneNumber={phoneNumber}
-            education={education}/>
+            education={education}
+            experience={experience}/>
             <button onClick={editForm}>Edit</button>
         </div>
     )

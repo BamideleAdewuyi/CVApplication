@@ -32,6 +32,14 @@ function CV() {
         addEducation("", "", "");
     };
 
+    function deleteSchool(id) {
+        const newEducation = education.filter(ed => 
+            ed.id != id
+        );
+
+        setEducation(newEducation);
+    };
+
     function addExperience(company, title, startYear, endYear, description) {
         addItem({id: exId,
             company: company,
@@ -47,13 +55,8 @@ function CV() {
         addExperience("", "", "", "", "")
     };
 
-    function deleteSchool(id) {
+    function deleteJob() {
 
-        const newEducation = education.filter(ed => 
-            ed.id != id
-        );
-
-        setEducation(newEducation);
     };
 
     function handleSubmit(e) {

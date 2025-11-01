@@ -18,8 +18,8 @@ function Submissions({name, email, phoneNumber, education, experience}) {
             <div className="experienceSubmissions" key={`experienceSubmissions${index}`}>
                 <p>Company: {experience[index].company}</p>
                 <p>Job Title: {experience[index].title}</p>
-                <p>From: {experience[index].startYear}</p>
-                <p>To: {experience[index].endYear}</p>
+                <p>From: {experience[index].from}</p>
+                <p>To: {experience[index].to}</p>
                 <p>Description: {experience[index].description}</p>
             </div>
         ))}

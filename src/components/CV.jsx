@@ -20,7 +20,6 @@ function CV() {
     };
 
     function addEducation(subject, school, year) {
-
         addItem({id: edId,
             subject: subject,
             school: school,
@@ -34,7 +33,14 @@ function CV() {
     };
 
     function addExperience(company, title, startYear, endYear, description) {
-
+        addItem({id: exId,
+            company: company,
+            title: title,
+            startYear: startYear,
+            endYear: endYear,
+            description: description
+        }, setExperience)
+        setExId(exId+1);
     };
 
     function addJob() {

@@ -115,7 +115,7 @@ function CV() {
                 <button type="button">Delete</button>
             </div>
         ))}
-        <button type="button">Add experience</button>
+        <button type="button" onClick={addJob}>Add experience</button>
         <button>Submit</button>
         </form>
         :

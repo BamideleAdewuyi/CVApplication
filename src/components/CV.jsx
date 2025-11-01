@@ -74,8 +74,15 @@ function CV() {
         setExperience(newExperience);
     };
 
-    function updateExperience() {
-
+    function updateExperience(value, id, name) {
+        const newExperience = experience.map(ex => {
+            if (ex.id == id) {
+                return {...ex, [name]: value}
+            } else {
+                return {...ex}
+            }
+        })
+        setEducation(newExperience);
     };
 
     function handleSubmit(e) {
